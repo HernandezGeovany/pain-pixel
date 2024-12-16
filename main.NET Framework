@@ -31,6 +31,9 @@ namespace this_is_pain
         int index;
         int x, y, sX, sY, cX, cY;
 
+        ColorDialog cd = new ColorDialog();
+        Color new_color;
+
         private void pic_MouseDown(object sender, MouseEventArgs e)
         {
             paint = true;
@@ -82,12 +85,61 @@ namespace this_is_pain
             { 
                 g.DrawRectangle(p,cX,cY,sX,sY);
             }
+            if (index == 5)
+            {
+                g.DrawLine(p, cX, cY, x, y);
+            }
 
         }
 
         private void btn_rect_Click(object sender, EventArgs e)
         {
             index = 4;
+        }
+
+        private void btn_line_Click(object sender, EventArgs e)
+        {
+            index = 5;
+        }
+
+        private void pic_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            if (paint)
+            {
+                if (index == 3)
+                {
+                    g.DrawEllipse(p, cX, cY, sX, sY);
+                }
+                if (index == 4)
+                {
+                    g.DrawRectangle(p, cX, cY, sX, sY);
+                }
+                if (index == 5)
+                {
+                    g.DrawLine(p, cX, cY, x, y);
+                }
+            }
+            
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            g.Clear(Color.White);
+            pic.Image = bm;
+            index = 0;
+        }
+
+        private void btn_color_Click(object sender, EventArgs e)
+        {
+            cd.ShowDialog();
+            new_color = cd.Color;
+            pic_color.BackColor = cd.Color;
+            p.Color = cd.Color;
+        }
+        static Point set_point(PictureBox pb , Point pt)
+        {
+            float pX= 1f * pb.Width / pb.Width;
         }
 
         private void btn_ellipse_Click(object sender, EventArgs e)
