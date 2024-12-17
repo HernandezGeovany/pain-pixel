@@ -1,0 +1,57 @@
+// Globális változók a zoom kezeléséhez
+private float zoomFactor = 1.0f;
+private float zoomStep = 0.1f;
+private PointF zoomOffset = new PointF(0, 0);
+
+// Az egérgörgő esemény kezelése a nagyításhoz és kicsinyítéshez
+private void pic_MouseWheel(object sender, MouseEventArgs e)
+{
+    // Zoom növelése vagy csökkentése
+    if (e.Delta > 0)
+    {
+        zoomFactor += zoomStep;
+    }
+    else if (e.Delta < 0 && zoomFactor > zoomStep)
+    {
+        zoomFactor -= zoomStep;
+    }
+
+    // Az aktuális egérpozícióhoz igazítjuk az eltolást
+    zoomOffset.X = e.Location.X * (1 - zoomFactor);
+    zoomOffset.Y = e.Location.Y * (1 - zoomFactor);
+
+    // Újrarajzolás kérése
+    pic.Invalidate();
+}
+
+// A kép újrarajzolása a nagyítási tényező alkalmazásával
+private void pic_Paint(object sender, PaintEventArgs e)
+{
+    Graphics g = e.Graphics;
+    g.TranslateTransform(zoomOffset.X, zoomOffset.Y);
+    g.ScaleTransform(zoomFactor, zoomFactor);
+
+    if (paint)
+    {
+        if (index == 3)
+        {
+            g.DrawEllipse(p, cX, cY, sX, sY);
+        }
+        if (index == 4)
+        {
+            g.DrawRectangle(p, cX, cY, sX, sY);
+        }
+        if (index == 5)
+        {
+            g.DrawLine(p, cX, cY, x, y);
+        }
+    }
+}
+
+// A MouseWheel esemény kezelőjének regisztrálása
+private void Form1_Load(object sender, EventArgs e)
+{
+    pic.MouseWheel += new MouseEventHandler(pic_MouseWheel);
+    pic.Paint += new PaintEventHandler(pic_Paint);
+    pic.Focus();
+}
