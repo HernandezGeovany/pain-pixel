@@ -77,6 +77,7 @@
             this.btn_save.TabIndex = 9;
             this.btn_save.Text = "Save\r\n";
             this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_clear
             // 
