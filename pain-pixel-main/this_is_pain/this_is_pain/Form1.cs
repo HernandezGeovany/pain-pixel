@@ -181,6 +181,16 @@ namespace this_is_pain
                 Fill(bm, point.X, point.Y, new_color);
             }
         }
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "Image(.jpg)|*.jpg|(*.*|*.*";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height),bm.PixelFormat);
+                btm.Save(sfd.FileName, ImageFormat.Jpeg);
+            }
+        }
 
         private void btn_ellipse_Click(object sender, EventArgs e)
         {
