@@ -1,6 +1,5 @@
-  private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (var ofd = new OpenFileDialog { Filter = "Szövegfájlok|*.txt|Minden fájl|*.*" })
-                if (ofd.ShowDialog() == DialogResult.OK)
-                    openToolStripMenuItem.Text = File.ReadAllText(ofd.FileName);
-        }
+{
+    using (var ofd = new OpenFileDialog { Filter = "Szövegfájlok|*.txt|Minden fájl|*.*" })
+        if (ofd.ShowDialog() == DialogResult.OK)
+            openToolStripMenuItem.Text = Path.GetFileName(ofd.FileName); // Csak a fájl nevét mutatja
+}
