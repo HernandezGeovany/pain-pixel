@@ -1,5 +1,51 @@
+using System;
+using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
+
+public class MainForm : Form
 {
-    using (var ofd = new OpenFileDialog { Filter = "Szövegfájlok|*.txt|Minden fájl|*.*" })
-        if (ofd.ShowDialog() == DialogResult.OK)
-            openToolStripMenuItem.Text = Path.GetFileName(ofd.FileName); // Csak a fájl nevét mutatja
+    private PictureBox pictureBox;
+    private ToolStripMenuItem openMenuItem;
+
+    public MainForm()
+    {
+        // Menü létrehozása
+        var menuStrip = new MenuStrip();
+        var fileMenu = new ToolStripMenuItem("Fájl");
+        openMenuItem = new ToolStripMenuItem("Megnyitás");
+        openMenuItem.Click += OpenMenuItem_Click;
+
+        fileMenu.DropDownItems.Add(openMenuItem);
+        menuStrip.Items.Add(fileMenu);
+        this.MainMenuStrip = menuStrip;
+        this.Controls.Add(menuStrip);
+
+        // PictureBox létrehozása
+        pictureBox = new PictureBox { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+        this.Controls.Add(pictureBox);
+
+        // Ablak beállításai
+        this.Text = "Kép megnyitása";
+        this.Size = new Size(800, 600);
+    }
+
+    private void OpenMenuItem_Click(object sender, EventArgs e)
+    {
+        using (var ofd = new OpenFileDialog { Filter = "Képfájlok|*.jpg;*.jpeg;*.png;*.bmp;*.gif|Minden fájl|*.*" })
+        {
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox.Image = Image.FromFile(ofd.FileName);
+                openMenuItem.Text = Path.GetFileName(ofd.FileName); // Menüben a fájl neve jelenik meg
+            }
+        }
+    }
+
+    [STAThread]
+    public static void Main()
+    {
+        Application.EnableVisualStyles();
+        Application.Run(new MainForm());
+    }
 }
