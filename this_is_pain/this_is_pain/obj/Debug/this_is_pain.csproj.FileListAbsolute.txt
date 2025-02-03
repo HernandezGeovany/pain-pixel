@@ -7,3 +7,12 @@ Z:\hálózat tervezése egy iskolába\this_is_pain\this_is_pain\obj\Debug\this_i
 Z:\hálózat tervezése egy iskolába\this_is_pain\this_is_pain\obj\Debug\this_is_pain.csproj.GenerateResource.cache
 Z:\hálózat tervezése egy iskolába\this_is_pain\this_is_pain\obj\Debug\this_is_pain.exe
 Z:\hálózat tervezése egy iskolába\this_is_pain\this_is_pain\obj\Debug\this_is_pain.pdb
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\bin\Debug\this_is_pain.exe.config
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\bin\Debug\this_is_pain.exe
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\bin\Debug\this_is_pain.pdb
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\obj\Debug\this_is_pain.csprojAssemblyReference.cache
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\obj\Debug\this_is_pain.Form1.resources
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\obj\Debug\this_is_pain.Properties.Resources.resources
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\obj\Debug\this_is_pain.csproj.GenerateResource.cache
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\obj\Debug\this_is_pain.exe
+Z:\paint app\pain-pixel-main\this_is_pain\this_is_pain\obj\Debug\this_is_pain.pdb
