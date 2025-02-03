@@ -1,0 +1,9 @@
+{
+            using (var ofd = new OpenFileDialog { Filter = "Szövegfájlok|*.txt|Minden fájl|*.*" })
+                if (ofd.ShowDialog() == DialogResult.OK)
+                    txtBox.Text = File.ReadAllText(ofd.FileName);
+        };
+
+        Controls.Add(txtBox);
+        Controls.Add(btnOpen);
+    }
