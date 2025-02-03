@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
-using System.IO;
 
 namespace this_is_pain
 {
@@ -17,10 +16,6 @@ namespace this_is_pain
         public Form1()
         {
             InitializeComponent();
-
-           
-
-
             this.Width = 1920;
             this.Height = 1080;
             bm = new Bitmap(pic.Width, pic.Height);
@@ -188,6 +183,17 @@ namespace this_is_pain
             }
         }
 
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            var sfd = new SaveFileDialog();
+            sfd.Filter = "Image(.jpg)|*.jpg|(*.*|*.*";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Bitmap btm = bm.Clone(new Rectangle(0, 0, pic.Width, pic.Height),bm.PixelFormat);
+                btm.Save(sfd.FileName, ImageFormat.Jpeg);
+            }
+        }
+
         private void btn_ellipse_Click(object sender, EventArgs e)
         {
             index = 3;
@@ -198,10 +204,7 @@ namespace this_is_pain
             index = 1;
         }
 
-        private void pic_color_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btn_eraser_Click(object sender, EventArgs e)
         {
