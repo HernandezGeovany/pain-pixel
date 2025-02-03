@@ -41,11 +41,20 @@
             this.btn_fill = new System.Windows.Forms.Button();
             this.btn_eraser = new System.Windows.Forms.Button();
             this.btn_pencil = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fájlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mentésMáskéntToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jpgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gifToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.megnyitásToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kilépésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pic = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color_picker)).BeginInit();
             this.panel3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +66,11 @@
             this.panel1.Controls.Add(this.color_picker);
             this.panel1.Controls.Add(this.pic_color);
             this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1904, 187);
+            this.panel1.Size = new System.Drawing.Size(1904, 204);
             this.panel1.TabIndex = 0;
             // 
             // btn_save
@@ -71,13 +81,12 @@
             this.btn_save.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_save.ForeColor = System.Drawing.Color.White;
-            this.btn_save.Location = new System.Drawing.Point(1696, 119);
+            this.btn_save.Location = new System.Drawing.Point(1566, 40);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(126, 52);
             this.btn_save.TabIndex = 9;
             this.btn_save.Text = "Save\r\n";
             this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_clear
             // 
@@ -87,7 +96,7 @@
             this.btn_clear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_clear.Location = new System.Drawing.Point(1543, 119);
+            this.btn_clear.Location = new System.Drawing.Point(1566, 112);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(126, 52);
             this.btn_clear.TabIndex = 8;
@@ -99,9 +108,9 @@
             // 
             this.color_picker.Cursor = System.Windows.Forms.Cursors.Hand;
             this.color_picker.Image = global::this_is_pain.Properties.Resources.color_palette;
-            this.color_picker.Location = new System.Drawing.Point(30, 54);
+            this.color_picker.Location = new System.Drawing.Point(30, 40);
             this.color_picker.Name = "color_picker";
-            this.color_picker.Size = new System.Drawing.Size(733, 130);
+            this.color_picker.Size = new System.Drawing.Size(736, 148);
             this.color_picker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.color_picker.TabIndex = 3;
             this.color_picker.TabStop = false;
@@ -110,11 +119,12 @@
             // pic_color
             // 
             this.pic_color.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pic_color.Location = new System.Drawing.Point(781, 95);
+            this.pic_color.Location = new System.Drawing.Point(795, 97);
             this.pic_color.Name = "pic_color";
-            this.pic_color.Size = new System.Drawing.Size(61, 52);
+            this.pic_color.Size = new System.Drawing.Size(75, 67);
             this.pic_color.TabIndex = 0;
             this.pic_color.UseVisualStyleBackColor = false;
+            this.pic_color.Click += new System.EventHandler(this.pic_color_Click);
             // 
             // panel3
             // 
@@ -126,9 +136,9 @@
             this.panel3.Controls.Add(this.btn_fill);
             this.panel3.Controls.Add(this.btn_eraser);
             this.panel3.Controls.Add(this.btn_pencil);
-            this.panel3.Location = new System.Drawing.Point(858, 36);
+            this.panel3.Location = new System.Drawing.Point(895, 50);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(668, 148);
+            this.panel3.Size = new System.Drawing.Size(653, 114);
             this.panel3.TabIndex = 3;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
@@ -141,11 +151,10 @@
             this.btn_ellipse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ellipse.ForeColor = System.Drawing.Color.White;
             this.btn_ellipse.Image = global::this_is_pain.Properties.Resources.circle;
-            this.btn_ellipse.Location = new System.Drawing.Point(389, 16);
+            this.btn_ellipse.Location = new System.Drawing.Point(391, 24);
             this.btn_ellipse.Name = "btn_ellipse";
-            this.btn_ellipse.Size = new System.Drawing.Size(80, 119);
+            this.btn_ellipse.Size = new System.Drawing.Size(65, 69);
             this.btn_ellipse.TabIndex = 5;
-            this.btn_ellipse.Text = "Ellipse";
             this.btn_ellipse.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ellipse.UseVisualStyleBackColor = false;
             this.btn_ellipse.Click += new System.EventHandler(this.btn_ellipse_Click);
@@ -159,11 +168,10 @@
             this.btn_line.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_line.ForeColor = System.Drawing.Color.White;
             this.btn_line.Image = global::this_is_pain.Properties.Resources.line;
-            this.btn_line.Location = new System.Drawing.Point(569, 16);
+            this.btn_line.Location = new System.Drawing.Point(571, 24);
             this.btn_line.Name = "btn_line";
-            this.btn_line.Size = new System.Drawing.Size(72, 119);
+            this.btn_line.Size = new System.Drawing.Size(57, 69);
             this.btn_line.TabIndex = 7;
-            this.btn_line.Text = "Line";
             this.btn_line.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_line.UseVisualStyleBackColor = false;
             this.btn_line.Click += new System.EventHandler(this.btn_line_Click);
@@ -177,9 +185,9 @@
             this.btn_color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_color.ForeColor = System.Drawing.Color.White;
             this.btn_color.Image = global::this_is_pain.Properties.Resources.color;
-            this.btn_color.Location = new System.Drawing.Point(31, 16);
+            this.btn_color.Location = new System.Drawing.Point(30, 24);
             this.btn_color.Name = "btn_color";
-            this.btn_color.Size = new System.Drawing.Size(68, 119);
+            this.btn_color.Size = new System.Drawing.Size(56, 69);
             this.btn_color.TabIndex = 1;
             this.btn_color.Text = "Color";
             this.btn_color.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -195,11 +203,10 @@
             this.btn_rect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_rect.ForeColor = System.Drawing.Color.White;
             this.btn_rect.Image = global::this_is_pain.Properties.Resources.rectangle;
-            this.btn_rect.Location = new System.Drawing.Point(484, 16);
+            this.btn_rect.Location = new System.Drawing.Point(485, 24);
             this.btn_rect.Name = "btn_rect";
-            this.btn_rect.Size = new System.Drawing.Size(70, 119);
+            this.btn_rect.Size = new System.Drawing.Size(56, 69);
             this.btn_rect.TabIndex = 6;
-            this.btn_rect.Text = "Rectangle";
             this.btn_rect.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_rect.UseVisualStyleBackColor = false;
             this.btn_rect.Click += new System.EventHandler(this.btn_rect_Click);
@@ -213,9 +220,10 @@
             this.btn_fill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_fill.ForeColor = System.Drawing.Color.White;
             this.btn_fill.Image = global::this_is_pain.Properties.Resources.bucket;
-            this.btn_fill.Location = new System.Drawing.Point(114, 16);
+            this.btn_fill.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btn_fill.Location = new System.Drawing.Point(116, 24);
             this.btn_fill.Name = "btn_fill";
-            this.btn_fill.Size = new System.Drawing.Size(77, 119);
+            this.btn_fill.Size = new System.Drawing.Size(62, 69);
             this.btn_fill.TabIndex = 2;
             this.btn_fill.Text = "Fill";
             this.btn_fill.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -232,9 +240,9 @@
             this.btn_eraser.ForeColor = System.Drawing.Color.White;
             this.btn_eraser.Image = global::this_is_pain.Properties.Resources.eraser;
             this.btn_eraser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_eraser.Location = new System.Drawing.Point(295, 16);
+            this.btn_eraser.Location = new System.Drawing.Point(297, 24);
             this.btn_eraser.Name = "btn_eraser";
-            this.btn_eraser.Size = new System.Drawing.Size(79, 119);
+            this.btn_eraser.Size = new System.Drawing.Size(64, 69);
             this.btn_eraser.TabIndex = 4;
             this.btn_eraser.Text = "Eraser";
             this.btn_eraser.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -250,15 +258,75 @@
             this.btn_pencil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_pencil.ForeColor = System.Drawing.Color.White;
             this.btn_pencil.Image = global::this_is_pain.Properties.Resources.pencil;
-            this.btn_pencil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_pencil.Location = new System.Drawing.Point(206, 16);
+            this.btn_pencil.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btn_pencil.Location = new System.Drawing.Point(208, 24);
             this.btn_pencil.Name = "btn_pencil";
-            this.btn_pencil.Size = new System.Drawing.Size(74, 119);
+            this.btn_pencil.Size = new System.Drawing.Size(59, 69);
             this.btn_pencil.TabIndex = 3;
             this.btn_pencil.Text = "Pencil";
             this.btn_pencil.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_pencil.UseVisualStyleBackColor = false;
             this.btn_pencil.Click += new System.EventHandler(this.btn_pencil_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fájlToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1904, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fájlToolStripMenuItem
+            // 
+            this.fájlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mentésMáskéntToolStripMenuItem,
+            this.megnyitásToolStripMenuItem,
+            this.kilépésToolStripMenuItem});
+            this.fájlToolStripMenuItem.Name = "fájlToolStripMenuItem";
+            this.fájlToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fájlToolStripMenuItem.Text = "Fájl";
+            // 
+            // mentésMáskéntToolStripMenuItem
+            // 
+            this.mentésMáskéntToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.jpgToolStripMenuItem,
+            this.pngToolStripMenuItem,
+            this.gifToolStripMenuItem});
+            this.mentésMáskéntToolStripMenuItem.Name = "mentésMáskéntToolStripMenuItem";
+            this.mentésMáskéntToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.mentésMáskéntToolStripMenuItem.Text = "Mentés másként";
+            // 
+            // jpgToolStripMenuItem
+            // 
+            this.jpgToolStripMenuItem.Name = "jpgToolStripMenuItem";
+            this.jpgToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.jpgToolStripMenuItem.Text = ".jpg";
+            // 
+            // pngToolStripMenuItem
+            // 
+            this.pngToolStripMenuItem.Name = "pngToolStripMenuItem";
+            this.pngToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.pngToolStripMenuItem.Text = ".png";
+            // 
+            // gifToolStripMenuItem
+            // 
+            this.gifToolStripMenuItem.Name = "gifToolStripMenuItem";
+            this.gifToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.gifToolStripMenuItem.Text = ".gif";
+            // 
+            // megnyitásToolStripMenuItem
+            // 
+            this.megnyitásToolStripMenuItem.Name = "megnyitásToolStripMenuItem";
+            this.megnyitásToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.megnyitásToolStripMenuItem.Text = "Megnyitás";
+            // 
+            // kilépésToolStripMenuItem
+            // 
+            this.kilépésToolStripMenuItem.Name = "kilépésToolStripMenuItem";
+            this.kilépésToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.kilépésToolStripMenuItem.Text = "Kilépés";
             // 
             // panel2
             // 
@@ -289,18 +357,25 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pic);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Paint";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.color_picker)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -324,6 +399,14 @@
         private System.Windows.Forms.PictureBox color_picker;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_clear;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fájlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mentésMáskéntToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jpgToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gifToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem megnyitásToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kilépésToolStripMenuItem;
     }
 }
 
